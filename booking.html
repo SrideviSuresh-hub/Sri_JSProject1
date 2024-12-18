@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Rental Records</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="brand">Car Rental</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="records.html">Rental Records</a>
+    </nav>
+</header>
+
+<!-- Rental Records Table -->
+<div class="records-container">
+    <h2>Rental Records</h2>
+    <button class="btn add-btn" onclick="showPopup('add')">Add New Record</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Rental ID</th>
+                <th>Car Model</th>
+                <th>Mfd Year</th>
+                <th>Fuel Type</th>
+                <th>Rent Start Date</th>
+                <th>Rent End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Toyota Corolla</td>
+                <td>2020</td>
+                <td>Petrol</td>
+                <td>2024-01-01</td>
+                <td>2024-01-10</td>
+                <td>
+                    <button class="btn edit-btn" onclick="showPopup('edit', 1)">Edit</button>
+                    <button class="btn delete-btn" onclick="confirmDelete(1)">Delete</button>
+                </td>
+            </tr>
+            <!-- Add more rows here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Add/Edit Record Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">×</span>
+        <h3>Add/Edit Rental Record</h3>
+        <form id="rentalForm">
+            <input type="text" id="rentalId" placeholder="Rental ID" required>
+            <input type="text" id="carModel" placeholder="Car Model" required>
+            <input type="number" id="mfdYear" placeholder="Mfd Year">
+            <select id="fuelType" required>
+                <option value="">Fuel Type</option>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+            </select>
+            <input type="date" id="rentStartDate" placeholder="Rent Start Date" required>
+            <input type="date" id="rentEndDate" placeholder="Rent End Date" required>
+            <input type="text" id="customerName" placeholder="Customer Name" required>
+            <input type="text" id="destinationPlace" placeholder="Destination Place" required>
+            <input type="text" id="startPlace" placeholder="Start Place" required>
+            <label for="isSinglePassenger">
+                Is Single Passenger (including driver):
+                <input type="checkbox" id="isSinglePassenger">
+            </label>
+            <br>
+            <button type="button" class="btn save-btn" onclick="saveRecord()">Save</button>
+            <button type="button" class="btn cancel-btn" onclick="closePopup()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Contact: car.rental@example.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
