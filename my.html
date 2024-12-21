@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <title>Car Rental - Rental Records</title>
+    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div class="brand" onclick="navigateHome()">Car Rental</div>
+            <nav>
+                <a href="home.html">Home</a>
+            </nav>
+        </header>
+
+        <div id="main_content">
+
+
+            <div class="recordcontainer" id="recordcontainer">
+                <h2>Rental Records</h2>
+                <div class="actionbuttons">
+                    <button class="btn addbtn" onclick="openPopup()">Add new Record</button>
+                    <input type="text" id="searchInput" placeholder="Enter Rental ID">
+                    <button class="btn searchbtn" onclick="searchRecord()">Search</button>
+                </div>
+
+                <div class="tableresponsive">
+                    <table id="table_data">
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- form for add-->
+
+            <div id="popupcontent">
+                <div id="button_close">
+                    <h3> ADD Rental Record</h3>
+                    <button class="close" onclick="closePopup()"><i  class="fa fa-close"></i></button>
+                
+                </div>
+
+
+
+
+                <hr style="color: aliceblue;">
+                <form id="rentalForm" onsubmit="">
+
+                    <!-- <input type="hidden" id="editIndex"> -->
+
+                    <div class="formgroup">
+                        <label for="rentalId">Rental ID*</label><br>
+                        <input type="text" id="rentalId" placeholder="Rental ID" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="carModel">Car Model*</label><br>
+                        <input type="text" id="carModel" placeholder="Car Model" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="mfdYear">Mfd Year</label><br>
+                        <input type="number" id="mfdYear" placeholder="Mfd Year">
+                    </div>
+                    <div class="formgroup">
+                        <label for="fuelType">Fuel Type</label><br>
+                        <select id="fuelType" >
+                            <option value="">Fuel Type</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+                    <div class="formgroup">
+                        <label for="rentStartDate">Rent Start Date*</label><br>
+                        <input type="date" id="rentStartDate" placeholder="Rent Start Date" title="This field is mandatory">
+                    </div>
+                    <div class="formgroup">
+                        <label for="rentEndDate">Rent End Date*</label><br>
+                        <input type="date" id="rentEndDate" placeholder="Rent End Date" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="customerName">Customer Name*</label><br>
+                        <input type="text" id="customerName" placeholder="Customer Name" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="startPlace">Start Place*</label><br>
+                        <input type="text" id="startPlace" placeholder="Start Place" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="destinationPlace">Destination Place*</label><br>
+                        <input type="text" id="destinationPlace" placeholder="Destination Place" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="isSinglePassenger">
+                            Is Single Passenger (including driver)*:
+                            <input type="checkbox" id="isSinglePassenger">
+                        </label>
+                    </div>
+                    <br>
+                    
+                     <button  onclick="addRecord()" >Save</button>
+                    <button type="button" class="btn cancelbtn" onclick="closePopup()">Cancel</button> 
+                </form>
+            </div>
+
+
+
+            <!-- Edit form -->
+
+
+            <div id="editpopupcontent">
+                <div id="button_close">
+                    <h3> ADD Rental Record</h3>
+                    <button class="close" onclick="editclosePopup()"><i  class="fa fa-close"></i></button>
+                
+                </div>
+
+
+
+
+                <hr style="color: aliceblue;">
+                <form id="rentalForm" onsubmit="">
+
+                    <!-- <input type="hidden" id="editIndex"> -->
+
+                    <div class="formgroup">
+                        <label for="rentalId1">Rental ID*</label><br>
+                        <input type="text" id="rentalId1" placeholder="Rental ID" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="carModel1">Car Model*</label><br>
+                        <input type="text" id="carModel1" placeholder="Car Model" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="mfdYear1">Mfd Year</label><br>
+                        <input type="number" id="mfdYear1" placeholder="Mfd Year">
+                    </div>
+                    <div class="formgroup">
+                        <label for="fuelType1">Fuel Type</label><br>
+                        <select id="fuelType1" >
+                            <option value="">Fuel Type</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+                    <div class="formgroup">
+                        <label for="rentStartDate1">Rent Start Date*</label><br>
+                        <input type="date" id="rentStartDate1" placeholder="Rent Start Date" title="This field is mandatory">
+                    </div>
+                    <div class="formgroup">
+                        <label for="rentEndDate1">Rent End Date*</label><br>
+                        <input type="date" id="rentEndDate1" placeholder="Rent End Date" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="customerName1">Customer Name*</label><br>
+                        <input type="text" id="customerName1" placeholder="Customer Name" title="This field is mandatory" >
+                    </div>
+                    <div class="formgroup">
+                        <label for="startPlace1">Start Place*</label><br>
+                        <input type="text" id="startPlace1" placeholder="Start Place" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="destinationPlace1">Destination Place*</label><br>
+                        <input type="text" id="destinationPlace1" placeholder="Destination Place" title="This field is mandatory"  >
+                    </div>
+                    <div class="formgroup">
+                        <label for="isSinglePassenger1">
+                            Is Single Passenger (including driver)*:
+                            <input type="checkbox" id="isSinglePassenger1">
+                        </label>
+                    </div>
+                    <br>
+                    
+                     <button  onclick="" >Save</button>
+                    <button type="button" class="btn cancelbtn" onclick="editclosePopup()">Cancel</button> 
+                </form>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+        <script src="new.js"></script>
+    </body>
+</html>

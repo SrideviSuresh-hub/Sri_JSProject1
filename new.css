@@ -1,0 +1,144 @@
+
+header {
+    background-color: #020543;
+    color: white;
+    padding: 5% 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:100%;
+}
+
+header .brand {
+    font-size:100%;
+    cursor: pointer;
+    
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2%;
+    
+}
+
+
+.recordcontainer {
+    
+    padding: 4%;
+}
+
+.recordcontainer h2 {
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+table {
+    width: 100%; /* Ensure the table uses full width of its container */
+    border-collapse: collapse;
+    margin-bottom: 5%;
+    font-size: smaller;
+     /* Ensure the table fits within its container */
+}
+
+th, td {
+    padding: 2%;
+    text-align: center;
+    border-bottom: 1% solid #ddd;
+    word-wrap:normal; /* Ensure long words break within cells */
+    height: 40%; /* Decrease the height of the table cells */
+}
+ table tr:hover(){
+    background-color: #a17a0c;
+}
+
+th {
+    background-color: #0a044f;
+    color: white;
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center; /* Center align headings */
+}
+
+td {
+    background-color: #f4f4f4;
+    color:#0a044f ;
+}
+
+.actions button {
+    padding: 1% 2%;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.actions button:hover {
+    background-color: #555;
+}
+
+.addbtn {
+    padding: 2% 4%;
+    background-color: #a17a0c; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 3%;
+    margin-right: auto;
+}
+
+
+
+
+
+
+/* Popup */
+
+
+
+#popupcontent, #editpopupcontent {
+    background-color: white;
+    padding: 3%;
+    width: 30%;
+    height: 90%;
+    background-color: #072155;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    display: none;
+}
+
+
+.formgroup{
+    width: 100%;
+
+}
+.formgroup label{
+    color: white;
+}
+.formgroup input{
+    width: 100%;
+}
+
+#button_close{
+    display: inline;
+}
+
+#button_close button{
+    background-color: red;
+    margin-left: 300px;
+}
+
+input[type="checkbox"] {
+    margin-left: 0%;
+}
+
+/* Footer */
+footer {
+    margin-top: 20%;
+    text-align: center;
+    padding: 2%;
+    background-color: #041154;
+    color: white;
+}

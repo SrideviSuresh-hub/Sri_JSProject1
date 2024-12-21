@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding :0;
   
-    background-image: linear-gradient(to right,white,rgb(238, 139, 139)
+    background-image: linear-gradient(to right,white,rgb(52, 29, 178)
     ,white);
 }
 header{
@@ -30,12 +30,14 @@ header{
     padding: 10px;*/
     
 }
-.div1{
-    display: flex;
-    justify-content: right;
-  
-}
 
+.divlogo1{
+    margin-top: 10%;
+    display: flex;
+    justify-content: left;
+    height: 100%;
+    width: 100%;
+}
 
 .logo1{
     
@@ -61,7 +63,7 @@ header{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
-    background-color: #a42222;
+    background-color: #0c0a57;
     padding: 10px;
     border-radius: 2%;
     width: 100%;
@@ -69,7 +71,7 @@ header{
   }
   
   .grid-container  .card {
-    background-color: rgba(137, 23, 23, 0.8);
+    background-color: rgba(25, 15, 108, 0.8);
     border: 1px solid rgb(239, 232, 232);
     overflow:visible;
    
