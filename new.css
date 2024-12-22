@@ -1,8 +1,9 @@
 
+
 header {
     background-color: #020543;
     color: white;
-    padding: 5% 4%;
+    padding: 2% 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,71 +23,102 @@ header nav a {
     
 }
 
+/* search and add button */
 
 .recordcontainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 9% 10% auto;
     
-    padding: 4%;
 }
 
-.recordcontainer h2 {
+.div1{
+    position: relative;
     text-align: center;
-    margin-bottom: 4%;
+}
+.div1 p{
+    font-size: bold;
+    font-size:30px;
+   
+}
+.actionbuttons{
+    position: relative;
+    
+}
+#addbtn{
+    position: relative;
+    padding: 1%;
+    width: 15%;
+    height: 60%;
+    top: 20%;
+    left: 0%;
+    background-color:#041154;
+    color: white;
+    border: none;
+    
+  
+}
+#search{
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left:70%;
+    top: 30%;
+
+}
+#searchInput{
+    width: 70%;
+    height: 40%;
+    position: relative;
+}
+#searchbtn{
+    width: 20%;
+    height: 40%;
+    position: absolute;
 }
 
-table {
-    width: 100%; /* Ensure the table uses full width of its container */
+
+/* table */
+.tableresponsive{
+    position: relative;
+}
+
+#table_data {
+    width: 100%;
+    border: 1px solid #041154;
+    text-align: center;
     border-collapse: collapse;
-    margin-bottom: 5%;
-    font-size: smaller;
-     /* Ensure the table fits within its container */
+    border-color: #041154;
 }
-
-th, td {
-    padding: 2%;
-    text-align: center;
-    border-bottom: 1% solid #ddd;
-    word-wrap:normal; /* Ensure long words break within cells */
-    height: 40%; /* Decrease the height of the table cells */
+#table_data td,th{
+    border: 1px solid #041154;
+    height: 5%;
+    padding: 1%;
+    
 }
- table tr:hover(){
-    background-color: #a17a0c;
-}
-
-th {
-    background-color: #0a044f;
+#table_data th{
+    background-color: #041154;
     color: white;
-    font-weight: bold;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    text-align: center; /* Center align headings */
-}
-
-td {
-    background-color: #f4f4f4;
-    color:#0a044f ;
-}
-
-.actions button {
-    padding: 1% 2%;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
 }
 
 
-.actions button:hover {
-    background-color: #555;
+
+/* masking */
+
+
+#mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(19, 12, 101);
+    top: 0;
+    opacity: 0.5;
+    display: none;
+   
+    
 }
 
-.addbtn {
-    padding: 2% 4%;
-    background-color: #a17a0c; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 3%;
-    margin-right: auto;
-}
 
 
 
@@ -99,40 +131,107 @@ td {
 
 #popupcontent, #editpopupcontent {
     background-color: white;
-    padding: 3%;
+    padding: 1%;
     width: 30%;
-    height: 90%;
-    background-color: #072155;
+    height: 80%;
+    background-color: #041154;
     position: absolute;
-    top: 0;
-    left: 30%;
+    top: 1%;
+    left: 35%;
     display: none;
+    z-index: 1111;
+}
+#rentalForm1{
+    height: 80%;
+    width: 100%;
 }
 
 
 .formgroup{
     width: 100%;
-
+}
+#fuelType,#fuelType1{
+    width: 100%;
+    height: 6%;
+    padding: 1%;
+    box-shadow: 2px 2px 5px rgb(223, 210, 210);
+    border: none;
+    border-radius: 10px;
 }
 .formgroup label{
     color: white;
+    border: none;
+    
 }
 .formgroup input{
     width: 100%;
+    height: 6%;
+    padding: 1%;
+    box-shadow: 2px 2px 5px rgb(230, 221, 221);
+    border: none;
+    border-radius: 10px;
+   
+}
+#isSinglePassenger,#isSinglePassenger1{
+    box-shadow: none;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    margin-top: 3%;
 }
 
+
 #button_close{
-    display: inline;
+    display:grid;
+    grid-template-columns: auto auto;
+    
+}
+#button_close div:first-child{
+    
+}
+#button_close div:last-child{
+   
 }
 
 #button_close button{
-    background-color: red;
-    margin-left: 300px;
+    background-color: rgb(216, 211, 211);
+    width: 20%;
+    height: 40%;
+   margin-left: 75%;
+   margin-top: 10%;
+    border-radius: 20%;
+    
 }
 
 input[type="checkbox"] {
     margin-left: 0%;
+    border-radius: 10px;
 }
+#last_button{
+    width: 100%;
+    height: 10%;
+   margin-top: -4%;
+
+}
+#last_button button{
+    width: 25%;
+    height: 80%;
+    margin-top: 1%;
+    margin-left: 15%;
+    border: none;
+    
+}
+#last_button button:first-child{
+    background-color: green;
+    border-radius: 10px;
+}
+#last_button button:last-child{
+    background-color: red;
+    border-radius: 10px;
+}
+
+
+
 
 /* Footer */
 footer {

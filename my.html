@@ -8,9 +8,10 @@
     </head>
     <body>
         <header>
-            <div class="brand" onclick="navigateHome()">Car Rental</div>
+            <div class="brand" onclick="navigateHome()"> <a  id=logo href=newhome.html><img src="images/logo.png" alt="RENTCAR" height="30%" width="30%"></a>
+            </div>
             <nav>
-                <a href="home.html">Home</a>
+                <a style="font-weight:bolder;" href="my.html">Bookings</a>
             </nav>
         </header>
 
@@ -18,11 +19,13 @@
 
 
             <div class="recordcontainer" id="recordcontainer">
-                <h2>Rental Records</h2>
+                <div class="div1"><p>Rental Records</p></div>
                 <div class="actionbuttons">
-                    <button class="btn addbtn" onclick="openPopup()">Add new Record</button>
-                    <input type="text" id="searchInput" placeholder="Enter Rental ID">
-                    <button class="btn searchbtn" onclick="searchRecord()">Search</button>
+                    <button id="addbtn" onclick="openPopup()"><i class="fa fa-add"></i>&nbsp;&nbsp; Add new Record</button>
+                    <div id="search">
+                        <input type="text" id="searchInput" placeholder="Enter Rental ID">
+                        <button id="searchbtn" onclick="searchRecord()"><i class="fa fa-search"></i></button>
+                    </div>
                 </div>
 
                 <div class="tableresponsive">
@@ -39,16 +42,18 @@
 
             <div id="popupcontent">
                 <div id="button_close">
-                    <h3> ADD Rental Record</h3>
-                    <button class="close" onclick="closePopup()"><i  class="fa fa-close"></i></button>
-                
+
+                    <div><h3> ADD Rental Record</h3></div>
+                    <div>
+                        <button class="close" onclick="closePopup()"><i  class="fa fa-close"></i></button>
+                        </div>
                 </div>
 
 
 
 
                 <hr style="color: aliceblue;">
-                <form id="rentalForm" onsubmit="">
+                <form id="rentalForm" onsubmit="addRecord()" >
 
                     <!-- <input type="hidden" id="editIndex"> -->
 
@@ -94,40 +99,45 @@
                     </div>
                     <div class="formgroup">
                         <label for="isSinglePassenger">
-                            Is Single Passenger (including driver)*:
+                            Is Single Passenger (including driver)*:</label>
                             <input type="checkbox" id="isSinglePassenger">
-                        </label>
+                        
                     </div>
                     <br>
+                    <div id="last_button">
                     
-                     <button  onclick="addRecord()" >Save</button>
-                    <button type="button" class="btn cancelbtn" onclick="closePopup()">Cancel</button> 
+                        <button type="submit" >Save</button>
+                        <button type="button" class="btn cancelbtn" onclick="closePopup()">Cancel</button>
+                    </div> 
                 </form>
             </div>
 
 
 
-            <!-- Edit form -->
 
 
-            <div id="editpopupcontent">
+             <!-- edit form-->
+
+             <div id="editpopupcontent">
                 <div id="button_close">
-                    <h3> ADD Rental Record</h3>
-                    <button class="close" onclick="editclosePopup()"><i  class="fa fa-close"></i></button>
-                
+
+                    <div><h3> Edit Rental Record</h3></div>
+                    <div>
+                        <button class="close" onclick="closePopup()"><i  class="fa fa-close"></i></button>
+                    </div>
                 </div>
 
 
 
 
                 <hr style="color: aliceblue;">
-                <form id="rentalForm" onsubmit="">
+                <form id="rentalForm1" onsubmit="update()" >
 
                     <!-- <input type="hidden" id="editIndex"> -->
 
                     <div class="formgroup">
                         <label for="rentalId1">Rental ID*</label><br>
-                        <input type="text" id="rentalId1" placeholder="Rental ID" title="This field is mandatory" >
+                        <input type="text" id="rentalId1" placeholder="Rental ID" title="This field is mandatory"  disabled>
                     </div>
                     <div class="formgroup">
                         <label for="carModel1">Car Model*</label><br>
@@ -138,7 +148,7 @@
                         <input type="number" id="mfdYear1" placeholder="Mfd Year">
                     </div>
                     <div class="formgroup">
-                        <label for="fuelType1">Fuel Type</label><br>
+                        <label for="fuelType">Fuel Type</label><br>
                         <select id="fuelType1" >
                             <option value="">Fuel Type</option>
                             <option value="Petrol">Petrol</option>
@@ -167,25 +177,60 @@
                     </div>
                     <div class="formgroup">
                         <label for="isSinglePassenger1">
-                            Is Single Passenger (including driver)*:
+                            Is Single Passenger (including driver)*:</label>
                             <input type="checkbox" id="isSinglePassenger1">
-                        </label>
+                        
                     </div>
                     <br>
+                    <div id="last_button">
                     
-                     <button  onclick="" >Save</button>
-                    <button type="button" class="btn cancelbtn" onclick="editclosePopup()">Cancel</button> 
+                        <button type="submit" >Update</button>
+                        <button type="button" class="btn cancelbtn" onclick="closePopup()">Cancel</button>
+                    </div> 
                 </form>
             </div>
 
+           
 
-
+ 
 
         </div>
+         <!--masking-->
+         <div id="mask">
 
-
+         </div>
+         
+        <!-- footer -->
+        <footer>
+            <div id="footer">
+                contact us at <strong>rentalcar@example.com</strong>
+            </div>
+        </footer>
 
 
         <script src="new.js"></script>
     </body>
 </html>
+<!-- // Validate rent start date and rent end date
+    if (new Date(rentStartDate) > new Date(rentEndDate)) {
+        alert("Rent end date should be after rent start date.");
+        return;
+    }
+
+    // Validate rent start date is greater than today
+    const today = new Date().toISOString().split('T')[0];
+    if (new Date(rentStartDate) <= new Date(today)) {
+        alert("Rent start date should be greater than today.");
+        return;
+    }
+
+    const table = document.querySelector("tbody");
+
+    if (editIndex === null) {
+        // Check if ID already exists
+        for (let i = 0; i < table.rows.length; i++) {
+            if (table.rows[i].cells[0].innerText === rentalId) {
+                alert("Rental ID already exists. Please use a different ID.");
+                return;
+            }
+        } -->
