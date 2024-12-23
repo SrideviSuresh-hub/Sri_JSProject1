@@ -18,25 +18,11 @@ function editopenPopup() {
 
 function closePopup() {
     document.getElementById("popupcontent").style.display = "none"; 
-    // document.getElementById("editpopupcontent").style.display = "none"; 
-    document.getElementById("mask").style.display = "none"; 
-    
-    
-}
-
-function editclosePopup() {
     document.getElementById("editpopupcontent").style.display = "none"; 
     document.getElementById("mask").style.display = "none"; 
     
-    //document.getElementById("rentalId").disabled = false;
     
 }
-
-
-
-
-
-
 
 
 let array=[
@@ -191,9 +177,27 @@ function editRecord(rowdetails){
 }
 
 function update(){
+
+    event.preventDefault()
+    let rentStartDate = document.getElementById("rentStartDate1").value;
+    let rentEndDate = document.getElementById("rentEndDate1").value;
+
+    // Validate rent start date is greater than today
+    if (new Date(rentStartDate) <= new Date()) {
+        alert("Rent start date should be greater than today's date.");
+        return ;
+    }
+
+    // Validate rent end date is after rent start date
+    if (new Date(rentStartDate) >= new Date(rentEndDate)) {
+        alert("Rent end date should be after rent start date.");
+        return ;
+    }
   
     let rentId=document.getElementById("rentalId1").value;
-    console.log(rentId)
+    console.log(rentId); 
+
+
     array.forEach(index =>{
         if(rentId==index.rentalId)
         {
@@ -203,28 +207,16 @@ function update(){
             index.fuelType=document.getElementById("fuelType1").value;
             index.rentStartDate = document.getElementById("rentStartDate1").value;
             index.rentEndDate=document.getElementById("rentEndDate1").value;
-            
-
-            if (index.rentStartDate <= new Date()) {
-                alert("Start date must be greater than today.");
-                return;
-            }
-        
-            if (index.rentEndDate >= index.rentStartDate) {
-                alert("End date must be greater than start date.");
-                return;
-            }
-           
-
             index.customerName=document.getElementById("customerName1").value;
             index.startPlace=document.getElementById("startPlace1").value;
             index.destinationPlace=document.getElementById("destinationPlace1").value;
             index.isSinglePassenger=document.getElementById("isSinglePassenger1").value;
-
+            console.log('id');
+            
             loadData();     
         }
     });
-    event.preventDefault(); 
+    
     closePopup();
 
 }

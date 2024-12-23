@@ -17,16 +17,17 @@
 
         <div id="main_content">
 
-
             <div class="recordcontainer" id="recordcontainer">
+                
                 <div class="div1"><p>Rental Records</p></div>
-                <div class="actionbuttons">
-                    <button id="addbtn" onclick="openPopup()"><i class="fa fa-add"></i>&nbsp;&nbsp; Add new Record</button>
-                    <div id="search">
+                
+                    <div class="actionbuttons">
+                        <button id="addbtn" onclick="openPopup()"><i class="fa fa-add"></i>&nbsp;&nbsp; Add new Record</button>
+                        <div id="search">
                         <input type="text" id="searchInput" placeholder="Enter Rental ID">
                         <button id="searchbtn" onclick="searchRecord()"><i class="fa fa-search"></i></button>
+                        </div>
                     </div>
-                </div>
 
                 <div class="tableresponsive">
                     <table id="table_data">
@@ -66,7 +67,7 @@
                         <input type="text" id="carModel" placeholder="Car Model" title="This field is mandatory" required >
                     </div>
                     <div class="formgroup">
-                        <label for="mfdYear">Mfd Year</label><br>
+                        <label for="mfdYear">Mfd Year(between 1900 and 2024)</label><br>
                         <input type="number" id="mfdYear" placeholder="Mfd Year" min="1900" max="2024">
                     </div>
                     <div class="formgroup">
@@ -144,7 +145,7 @@
                         <input type="text" id="carModel1" placeholder="Car Model" title="This field is mandatory"  required>
                     </div>
                     <div class="formgroup">
-                        <label for="mfdYear1">Mfd Year</label><br>
+                        <label for="mfdYear1">Mfd Year (between 1900 and 2024)</label><br>
                         <input type="number" id="mfdYear1" placeholder="Mfd Year" min="1900" max="2024">
                     </div>
                     <div class="formgroup">
@@ -190,22 +191,25 @@
                 </form>
             </div>
 
-           
+           <!-- footer -->
+
 
  
 
         </div>
-        <!--masking-->
-        <div id="mask">
 
-        </div>
-        
-        <!-- footer -->
         <footer>
             <div id="footer">
                 contact us at <strong>rentalcar@example.com</strong>
             </div>
         </footer>
+
+        <!--masking-->
+        <div id="mask">
+
+        </div>
+        
+        
         
         
         <script src="booking.js"></script>
