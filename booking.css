@@ -1,4 +1,7 @@
-
+.body{
+    width: 100%;
+    overflow-x: hidden;
+}
 
 header {
     background-color: #020543;
@@ -52,7 +55,7 @@ header nav a {
     width: 15%;
     height: 60%;
     top: 20%;
-    left: 0%;
+    left: 85%;
     background-color:#041154;
     color: white;
     border: none;
@@ -63,19 +66,24 @@ header nav a {
     position: absolute;
     width: 30%;
     height: 100%;
-    left:70%;
+    left:0%;
     top: 30%;
+   
 
 }
 #searchInput{
     width: 70%;
     height: 40%;
-    position: relative;
+    position: relative; 
+    border: 2px solid rgb(40, 37, 37);
+   
 }
 #searchbtn{
     width: 20%;
     height: 40%;
     position: absolute;
+    border: 2px solid rgb(34, 32, 32);
+    border-left: none;
 }
 
 
@@ -108,14 +116,13 @@ header nav a {
 
 
 #mask{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgb(19, 12, 101);
+    background-color: rgb(215, 214, 227);
     top: 0;
     opacity: 0.5;
     display: none;
-   
     
 }
 
@@ -133,15 +140,22 @@ header nav a {
     background-color: white;
     padding: 1%;
     width: 30%;
-    height: 80%;
-    background-color: #041154;
+    height: 100%;
+    background-color: #0b1464;
     position: absolute;
     top: 1%;
     left: 35%;
     display: none;
     z-index: 1111;
 }
+#popupcontent h3{
+        color: white;
+}
 #rentalForm1{
+    height: 80%;
+    width: 100%;
+}
+#rentalForm{
     height: 80%;
     width: 100%;
 }
@@ -149,6 +163,7 @@ header nav a {
 
 .formgroup{
     width: 100%;
+
 }
 #fuelType,#fuelType1{
     width: 100%;
@@ -161,12 +176,12 @@ header nav a {
 .formgroup label{
     color: white;
     border: none;
-    
+    padding-bottom: 2%;
 }
 .formgroup input{
     width: 100%;
     height: 6%;
-    padding: 1%;
+    
     box-shadow: 2px 2px 5px rgb(230, 221, 221);
     border: none;
     border-radius: 10px;
@@ -190,15 +205,15 @@ header nav a {
     
 }
 #button_close div:last-child{
-   
+    
 }
 
 #button_close button{
     background-color: rgb(216, 211, 211);
     width: 20%;
     height: 40%;
-   margin-left: 75%;
-   margin-top: 10%;
+    margin-left: 70%;
+     margin-top: 10%;
     border-radius: 20%;
     
 }
@@ -235,9 +250,13 @@ input[type="checkbox"] {
 
 /* Footer */
 footer {
-    margin-top: 20%;
+    /* margin-top: 0%; */
     text-align: center;
     padding: 2%;
     background-color: #041154;
     color: white;
+    bottom: 0;
+    left: 0;
+    
+    
 }

@@ -1,17 +1,17 @@
 <html>
     <head>
         <title>Car Rental - Rental Records</title>
-    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-    <body>
+    <body >
         <header>
-            <div class="brand" onclick="navigateHome()"> <a  id=logo href=newhome.html><img src="images/logo.png" alt="RENTCAR" height="30%" width="30%"></a>
+            <div class="brand"> <a  id=logo href=home.html><img src="images/logo.png" alt="RENTCAR" height="30%" width="30%"></a>
             </div>
             <nav>
-                <a style="font-weight:bolder;" href="my.html">Bookings</a>
+                <a style="font-weight:bolder; font-size: 150%;" href="booking.css" style="font-family: cursive;">Bookings</a>
             </nav>
         </header>
 
@@ -59,43 +59,43 @@
 
                     <div class="formgroup">
                         <label for="rentalId">Rental ID*</label><br>
-                        <input type="text" id="rentalId" placeholder="Rental ID" title="This field is mandatory" >
+                        <input type="text" id="rentalId" placeholder="Rental ID" title="This field is mandatory"  required>
                     </div>
                     <div class="formgroup">
                         <label for="carModel">Car Model*</label><br>
-                        <input type="text" id="carModel" placeholder="Car Model" title="This field is mandatory" >
+                        <input type="text" id="carModel" placeholder="Car Model" title="This field is mandatory" required >
                     </div>
                     <div class="formgroup">
                         <label for="mfdYear">Mfd Year</label><br>
-                        <input type="number" id="mfdYear" placeholder="Mfd Year">
+                        <input type="number" id="mfdYear" placeholder="Mfd Year" min="1900" max="2024">
                     </div>
                     <div class="formgroup">
                         <label for="fuelType">Fuel Type</label><br>
                         <select id="fuelType" >
-                            <option value="">Fuel Type</option>
+                            
                             <option value="Petrol">Petrol</option>
                             <option value="Diesel">Diesel</option>
                         </select>
                     </div>
                     <div class="formgroup">
                         <label for="rentStartDate">Rent Start Date*</label><br>
-                        <input type="date" id="rentStartDate" placeholder="Rent Start Date" title="This field is mandatory">
+                        <input type="date" id="rentStartDate" placeholder="Rent Start Date" title="This field is mandatory" required>
                     </div>
                     <div class="formgroup">
                         <label for="rentEndDate">Rent End Date*</label><br>
-                        <input type="date" id="rentEndDate" placeholder="Rent End Date" title="This field is mandatory"  >
+                        <input type="date" id="rentEndDate" placeholder="Rent End Date" title="This field is mandatory"  required>
                     </div>
                     <div class="formgroup">
                         <label for="customerName">Customer Name*</label><br>
-                        <input type="text" id="customerName" placeholder="Customer Name" title="This field is mandatory" >
+                        <input type="text" id="customerName" placeholder="Customer Name" title="This field is mandatory" required >
                     </div>
                     <div class="formgroup">
                         <label for="startPlace">Start Place*</label><br>
-                        <input type="text" id="startPlace" placeholder="Start Place" title="This field is mandatory"  >
+                        <input type="text" id="startPlace" placeholder="Start Place" title="This field is mandatory" required  >
                     </div>
                     <div class="formgroup">
                         <label for="destinationPlace">Destination Place*</label><br>
-                        <input type="text" id="destinationPlace" placeholder="Destination Place" title="This field is mandatory"  >
+                        <input type="text" id="destinationPlace" placeholder="Destination Place" title="This field is mandatory" required >
                     </div>
                     <div class="formgroup">
                         <label for="isSinglePassenger">
@@ -137,15 +137,15 @@
 
                     <div class="formgroup">
                         <label for="rentalId1">Rental ID*</label><br>
-                        <input type="text" id="rentalId1" placeholder="Rental ID" title="This field is mandatory"  disabled>
+                        <input type="text" id="rentalId1" placeholder="Rental ID" title="This field is mandatory"  disabled style="color: white;">
                     </div>
                     <div class="formgroup">
                         <label for="carModel1">Car Model*</label><br>
-                        <input type="text" id="carModel1" placeholder="Car Model" title="This field is mandatory" >
+                        <input type="text" id="carModel1" placeholder="Car Model" title="This field is mandatory"  required>
                     </div>
                     <div class="formgroup">
                         <label for="mfdYear1">Mfd Year</label><br>
-                        <input type="number" id="mfdYear1" placeholder="Mfd Year">
+                        <input type="number" id="mfdYear1" placeholder="Mfd Year" min="1900" max="2024">
                     </div>
                     <div class="formgroup">
                         <label for="fuelType">Fuel Type</label><br>
@@ -157,23 +157,23 @@
                     </div>
                     <div class="formgroup">
                         <label for="rentStartDate1">Rent Start Date*</label><br>
-                        <input type="date" id="rentStartDate1" placeholder="Rent Start Date" title="This field is mandatory">
+                        <input type="date" id="rentStartDate1" placeholder="Rent Start Date" title="This field is mandatory" required>
                     </div>
                     <div class="formgroup">
                         <label for="rentEndDate1">Rent End Date*</label><br>
-                        <input type="date" id="rentEndDate1" placeholder="Rent End Date" title="This field is mandatory"  >
+                        <input type="date" id="rentEndDate1" placeholder="Rent End Date" title="This field is mandatory" required >
                     </div>
                     <div class="formgroup">
                         <label for="customerName1">Customer Name*</label><br>
-                        <input type="text" id="customerName1" placeholder="Customer Name" title="This field is mandatory" >
+                        <input type="text" id="customerName1" placeholder="Customer Name" title="This field is mandatory" required>
                     </div>
                     <div class="formgroup">
                         <label for="startPlace1">Start Place*</label><br>
-                        <input type="text" id="startPlace1" placeholder="Start Place" title="This field is mandatory"  >
+                        <input type="text" id="startPlace1" placeholder="Start Place" title="This field is mandatory"  required>
                     </div>
                     <div class="formgroup">
                         <label for="destinationPlace1">Destination Place*</label><br>
-                        <input type="text" id="destinationPlace1" placeholder="Destination Place" title="This field is mandatory"  >
+                        <input type="text" id="destinationPlace1" placeholder="Destination Place" title="This field is mandatory" required  >
                     </div>
                     <div class="formgroup">
                         <label for="isSinglePassenger1">
@@ -195,42 +195,19 @@
  
 
         </div>
-         <!--masking-->
-         <div id="mask">
+        <!--masking-->
+        <div id="mask">
 
-         </div>
-         
+        </div>
+        
         <!-- footer -->
         <footer>
             <div id="footer">
                 contact us at <strong>rentalcar@example.com</strong>
             </div>
         </footer>
-
-
-        <script src="new.js"></script>
+        
+        
+        <script src="booking.js"></script>
     </body>
 </html>
-<!-- // Validate rent start date and rent end date
-    if (new Date(rentStartDate) > new Date(rentEndDate)) {
-        alert("Rent end date should be after rent start date.");
-        return;
-    }
-
-    // Validate rent start date is greater than today
-    const today = new Date().toISOString().split('T')[0];
-    if (new Date(rentStartDate) <= new Date(today)) {
-        alert("Rent start date should be greater than today.");
-        return;
-    }
-
-    const table = document.querySelector("tbody");
-
-    if (editIndex === null) {
-        // Check if ID already exists
-        for (let i = 0; i < table.rows.length; i++) {
-            if (table.rows[i].cells[0].innerText === rentalId) {
-                alert("Rental ID already exists. Please use a different ID.");
-                return;
-            }
-        } -->

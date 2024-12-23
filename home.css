@@ -1,0 +1,107 @@
+header {
+    background-color: #020543;
+    color: white;
+    padding: 2% 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 100%;
+  }
+  
+  header .brand {
+    font-size: 100%;
+    cursor: pointer;
+  }
+  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2%;
+  }
+  
+  .main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .divlogo1 {
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    padding: 0 2%;
+  }
+  
+  .divlogo1 img {
+    width: 100%; /* Increased size */
+    height: auto;
+    border-radius: 3%;
+    margin-top: -10%;
+  }
+  
+  .texts {
+    font-size: xx-large;
+    margin-left: 5%;
+   text-shadow: 2px 2px 5px rgb(14, 6, 98);
+    
+  }
+  
+  .grid-container {
+    display: grid;
+    width: 95%;
+    height: 100%;
+    overflow-y: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2%;
+    padding: 2%;
+    border-radius: 1%;
+    margin-bottom: 10%;
+  }
+  
+  .grid-container .card {
+    border: 1px solid rgb(13, 10, 100);
+    border-radius: 3%;
+    background-color: rgb(10, 5, 101);
+    box-shadow: 5px 5px 5px rgb(17, 4, 72);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3%;
+    object-fit: cover; /* Ensures the image fits properly */
+  }
+  
+  /* Footer */
+  footer {
+   
+    text-align: center;
+    padding: 1%;
+    background-color: #041154;
+    color: white;
+   
+   
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .divlogo1 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .divlogo1 img {
+      width: 100%;
+    }
+  
+    .texts {
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+  
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  

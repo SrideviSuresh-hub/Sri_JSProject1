@@ -18,7 +18,7 @@ function editopenPopup() {
 
 function closePopup() {
     document.getElementById("popupcontent").style.display = "none"; 
-    document.getElementById("editpopupcontent").style.display = "none"; 
+    // document.getElementById("editpopupcontent").style.display = "none"; 
     document.getElementById("mask").style.display = "none"; 
     
     
@@ -110,6 +110,9 @@ function storeData(x){
 
 function addRecord(){
     event.preventDefault();
+
+    const myId=document.getElementById("rentalId").value;
+
     var data={};
     data["rentalId"]=document.getElementById("rentalId").value;
     data["carModel"]=document.getElementById("carModel").value;
@@ -122,8 +125,37 @@ function addRecord(){
     data["destinationPlace"]=document.getElementById("destinationPlace").value;
     data["isSinglePassenger"]=document.getElementById("isSinglePassenger").value;
 
-    
+
+ 
+  
+
+
+// Validate rent start date is greater than today
+if (new Date(data["rentStartDate"]) <= new Date()) {
+    alert("Rent start date should be greater than today's date.");
+    return ;
+}
+
+// Validate rent end date is after rent start date
+if (new Date(data["rentStartDate"]) >= new Date(data["rentEndDate"])) {
+    alert("Rent end date should be after rent start date.");
+    return ;
+}
+
+// Check for unique rental ID
+let isUnique = array.every(ele => ele.rentalId !== myId);
+if (isUnique) {
     array.push(data);
+   
+    alert("Record added successfully!");
+} else {
+    alert("Rental ID already exists. Please use a unique ID.");
+    return;
+}
+
+
+
+   // array.push(data);
     loadData();
     closePopup();
   
@@ -171,10 +203,24 @@ function update(){
             index.fuelType=document.getElementById("fuelType1").value;
             index.rentStartDate = document.getElementById("rentStartDate1").value;
             index.rentEndDate=document.getElementById("rentEndDate1").value;
+            
+
+            if (index.rentStartDate <= new Date()) {
+                alert("Start date must be greater than today.");
+                return;
+            }
+        
+            if (index.rentEndDate >= index.rentStartDate) {
+                alert("End date must be greater than start date.");
+                return;
+            }
+           
+
             index.customerName=document.getElementById("customerName1").value;
             index.startPlace=document.getElementById("startPlace1").value;
             index.destinationPlace=document.getElementById("destinationPlace1").value;
             index.isSinglePassenger=document.getElementById("isSinglePassenger1").value;
+
             loadData();     
         }
     });
@@ -183,58 +229,60 @@ function update(){
 
 }
 
-// serach opertation
+// Search operation
+function searchRecord() {
+    let id = document.getElementById("searchInput").value;
 
-function searchRecord(){
-    let result;
-    let id=document.getElementById("searchInput").value;
-
-    if(id==null){
+    if (id === "") {
         loadData();
+    } else {
+        let found = false;
+        let tabletext = `<thead>
+            <tr>
+                <th>Rental ID</th>
+                <th>Car Model</th>
+                <th>Mfd Year</th>
+                <th>Fuel Type</th>
+                <th>Rent Start Date</th>
+                <th>Rent End Date</th>
+                <th>Booked Customer Name</th>
+                <th>Start Place</th>
+                <th>Destination Place</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>`;
 
-    }
-    else{
-        result= array.forEach(index =>{
-            if(index.rentalId == id)
-            {
-                result=1;
-                var tabletext=`<thead>
-                    <tr>
-                        <th>Rental ID</th>
-                        <th>Car Model</th>
-                        <th>Mfd Year</th>
-                        <th>Fuel Type</th>
-                        <th>Rent Start Date</th>
-                        <th>Rent End Date</th>
-                        <th>Booked Customer Name</th>
-                        <th>Start Place</th>
-                        <th>Destination Place</th>
-                        <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>`;
-                        tabletext+=`<tr><td>`+ index.rentalId+`</td><td>`+index.carModel+`</td><td>`+index.mfdYear+`</td><td>`+
-                        index.fuelType+`</td><td>`+index.rentStartDate+`</td><td>`+index.rentEndDate+`</td><td>`+
-                        index.customerName+`</td><td>`+index.startPlace+`</td><td>`+index.destinationPlace+`</td><td>
+        array.forEach(index => {
+            if (index.rentalId == id) {
+                found = true;
+                tabletext += `<tr>
+                    <td>${index.rentalId}</td>
+                    <td>${index.carModel}</td>
+                    <td>${index.mfdYear}</td>
+                    <td>${index.fuelType}</td>
+                    <td>${index.rentStartDate}</td>
+                    <td>${index.rentEndDate}</td>
+                    <td>${index.customerName}</td>
+                    <td>${index.startPlace}</td>
+                    <td>${index.destinationPlace}</td>
+                    <td>
                         <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
-                        <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button></td></tr>`           
-                        tabletext+=`</tbody>`;
-                        document.getElementById("table_data").innerHTML=tabletext;
-                    return 0;
+                        <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>`;
             }
-
-    
         });
-        if(result!=1)
-        {
-            alert("Rental ID not found........!")
-            return 0;
 
+        if (!found) {
+            tabletext += `<tr><td colspan="10">Rental ID not found.</td></tr>`;
         }
-       
+
+        tabletext += `</tbody>`;
+        document.getElementById("table_data").innerHTML = tabletext;
     }
-    
 }
+
 
 
 
@@ -283,10 +331,10 @@ function loadData(){
 
 function deleteRecord(rowdetails){
     
-    var bool=confirm("Do you want yo delete thid record?");
+    var del=confirm("Do you want to delete this record?");
 
-    if(bool==true){
-
+    if(del==true){
+        console
      selectRow=rowdetails.parentElement.parentElement;
      rowId=selectRow.cells[0].innerHTML;
      
