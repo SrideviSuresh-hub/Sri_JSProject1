@@ -1,6 +1,6 @@
 .body{
     width: 100%;
-    overflow-x: hidden;
+    
 }
 
 header {
@@ -11,6 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-size:100%;
+    margin-bottom: 2%;
 }
 
 header .brand {
@@ -20,14 +21,15 @@ header .brand {
 }
 #main_content{
     width: 100%;
-    height: 80%;
+    height: 55%;
+    /* 69 */
 }
 
 header nav a {
     color: white;
     text-decoration: none;
-    margin-left: 2%;
-    
+ 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* search and add button */
@@ -56,13 +58,15 @@ header nav a {
 #addbtn{
     position: relative;
     padding: 1%;
+    padding-bottom: 2%;
     width: 15%;
-    height: 60%;
+    height: 65%;
     top: 20%;
-    left: 85%;
+    left: 80%;
     background-color:#041154;
     color: white;
     border: none;
+    border-radius: 10px;
     
   
 }
@@ -72,28 +76,37 @@ header nav a {
     height: 100%;
     left:0%;
     top: 30%;
-   
+    
 
 }
 #searchInput{
     width: 70%;
-    height: 40%;
+    height: 60%;
     position: relative; 
     border: 2px solid rgb(40, 37, 37);
+    border: none;
+   background-color: rgb(221, 223, 223);
+   border-radius: 10px 0 0 10px;
    
 }
 #searchbtn{
     width: 20%;
-    height: 40%;
+    height: 60%;
     position: absolute;
     border: 2px solid rgb(34, 32, 32);
-    border-left: none;
+    border: none;
+    background-color: rgb(170, 169, 168);
+    border-radius: 0 10px 10px 0;
+   
+    
 }
 
 
 /* table */
 .tableresponsive{
+    margin-top: 2%;
     position: relative;
+    overflow: auto;
 }
 
 #table_data {
@@ -104,16 +117,21 @@ header nav a {
     border-collapse: collapse;
     border-color: #041154;
     overflow: auto;
+    table-layout: auto;
+    margin-top: 2%;
 }
 #table_data td,th{
     border: 1px solid #041154;
     /* height: 5%; */
+    padding: 10px;
     
     
 }
 #table_data th{
     background-color: #041154;
     color: white;
+    font-size: 16px;
+    padding: 10px;
 }
 
 
@@ -125,7 +143,7 @@ header nav a {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgb(215, 214, 227);
+    background-color: rgb(9, 9, 9);
     top: 0;
     opacity: 0.5;
     display: none;
@@ -143,16 +161,18 @@ header nav a {
 
 
 #popupcontent, #editpopupcontent {
-    background-color: white;
+
     padding: 1%;
     width: 30%;
     height: auto;
-    background-color: #0b1464;
+    background-color: #151e76;
+    border-radius: 30px;
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 35%;
     display: none;
     z-index: 1111;
+    padding: 1%;
 }
 #popupcontent h3{
         color: white;
@@ -169,6 +189,8 @@ header nav a {
 
 .formgroup{
     width: 100%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
 
 }
 #fuelType,#fuelType1{
@@ -183,7 +205,7 @@ header nav a {
     color: white;
     border: none;
     padding-bottom: 2%;
-    margin-top: 1%;
+  
 }
 .formgroup input{
     width: 100%;
@@ -193,7 +215,7 @@ header nav a {
     padding-top: 1%;
     padding-bottom: 1%;
     border-radius: 10px;
-    margin-top: 1%;
+    
    
 }
 #isSinglePassenger ,#isSinglePassenger1{
@@ -207,24 +229,28 @@ header nav a {
 
 #button_close{
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 70% 30%;
     
 }
-#button_close div:first-child{
+/* #button_close div:first-child{
     
 }
 #button_close div:last-child{
     
-}
+} */
 
 #button_close button{
     background-color: rgb(216, 211, 211);
     width: 20%;
     height: 40%;
-    margin-left: 80%;
+    margin-left: 70%;
      margin-top: 10%;
     border-radius: 20%;
     
+}
+#button_close>div>button>i{
+    font-size: 100%;
+
 }
 
 input[type="checkbox"] {
@@ -233,16 +259,18 @@ input[type="checkbox"] {
 }
 #last_button{
     width: 100%;
-    height: 10%;
+    height: 8%;
    margin-top: -4%;
+   
 
 }
 #last_button button{
     width: 25%;
-    height: 80%;
+    height: 60%;
     margin-top: 1%;
     margin-left: 15%;
     border: none;
+    padding: 2%;
     
 }
 #last_button button:first-child{
@@ -253,15 +281,18 @@ input[type="checkbox"] {
     background-color: red;
     border-radius: 10px;
 }
+#button_close>div>h3{
+    color: white;
+}
 
 
 
 
 /* Footer */
 footer {
-    /* margin-top: 0%; */
-    width: 95%;
-    height: 10%;
+    margin-top: 3%;
+    width: 96%;
+    height: 5%;
     text-align: center;
     padding: 2%;
     background-color: #041154;
@@ -270,4 +301,21 @@ footer {
    
     
     
+}
+@media screen and (max-width:920px) {
+    #button_close button{
+        background-color: rgb(216, 211, 211);
+        width: 10%;
+        height: 20%;
+        margin-left: 70%;
+         margin-top: 10%;
+        border-radius: 20%;
+        
+    }
+   
+    #button_close>div>button>i{
+        font-size: 75%;
+      
+    
+    }
 }

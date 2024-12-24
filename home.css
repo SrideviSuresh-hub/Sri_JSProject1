@@ -28,7 +28,8 @@ header .brand {
 header nav a {
     color: white;
     text-decoration: none;
-    margin-left: 2%;
+    margin-left: 0%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .main {
