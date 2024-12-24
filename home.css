@@ -1,140 +1,142 @@
 * {
-    box-sizing: border-box;
-    /* margin: 0; */
-    /* padding: 0; */
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #f9f9f9;
-    /* margin: 0;
+  background-color: #f9f9f9;
+  /* margin: 0;
     padding: 0; */
-} 
+}
 
 header {
-    background-color: #020543;
-    color: white;
-    padding: 2% 2%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 100%;
+  background-color: #020543;
+  color: white;
+  padding: 2% ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 100%;
 }
 
 header .brand {
-    font-size: 100%;
-    cursor: pointer;
+  font-size: 100%;
+  cursor: pointer;
 }
 
 header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 0%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  text-decoration: none;
+  margin-left: 0%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .main {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .divlogo1 {
-    display: flex;
-    align-items: center;
-    margin-top: 10%;
-    padding: 0 2%;
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+  padding: 0 2%;
 }
 
 .divlogo1 img {
-    width: 100%; 
-    height: auto;
-    border-radius: 3%;
-    margin-top: -10%;
+  width: 100%;
+  height: auto;
+  border-radius: 3%;
+  margin-top: -10%;
 }
 
 .texts {
-    font-size: xx-large;
-    margin-left: 5%;
-    text-shadow: 2px 2px 5px rgb(14, 6, 98);
+  font-size: xx-large;
+  margin-left: 5%;
+
+  text-shadow: 2px 2px 5px rgb(14, 6, 98);
 }
 
 .grid-container {
-    display: grid;
-    width: 100%;
-    height: auto;
-    overflow-y: hidden;
-    grid-template-columns: repeat(3, 1fr); /* Set 3 columns */
-    gap: 2%;
-    margin-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 1%;
-    margin-bottom: 5%;
+  display: grid;
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+  grid-template-columns: repeat(3, 1fr); /* Set 3 columns */
+  gap: 2%;
+  margin-top: 5%;
+  padding-bottom: 5%;
+  border-radius: 1%;
+  margin-bottom: 5%;
 }
 
 .grid-container .card {
-    border: 1px solid rgb(13, 10, 100);
-    border-radius: 3%;
-    background-color: rgb(10, 5, 101);
-    box-shadow: 5px 5px 5px rgb(17, 4, 72);
+  border: 1px solid rgb(13, 10, 100);
+  border-radius: 3%;
+  background-color: rgb(10, 5, 101);
+  box-shadow: 5px 5px 5px rgb(17, 4, 72);
 }
 
 .card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 3%;
-    object-fit:cover; 
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+  object-fit: cover;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .divlogo1 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .divlogo1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .divlogo1 img {
-        width: 100%;
-    }
+  .divlogo1 img {
+    width: 100%;
+  }
 
-    /* .texts {
+  /* .texts {
         margin-left: 0;
         margin-top: 10%;
         text-align: center;
     } */
 
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
-    }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  }
 }
 
 @media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1% 2%;
-    }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1% 2%;
+  }
 
-    /* header nav a {
+  /* header nav a {
         margin-left: 0;
         margin-top: 5px;
     } */
 
-    /* .texts {
+  /* .texts {
         font-size: large;
         text-align: left;
     } */
 
-    .grid-container {
-        grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
-    }
-
- 
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
+  }
 }
 
 footer {
-    text-align: center;
-    padding: 1%;
-    background-color: #041154;
-    color: white;
-    width: 100%;
+  text-align: center;
+  padding: 1%;
+  background-color: #041154;
+  color: white;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  position: fixed;
 }
