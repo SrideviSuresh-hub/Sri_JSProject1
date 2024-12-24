@@ -10,16 +10,21 @@
       referrerpolicy="no-referrer"
     />
   </head>
+
   <body>
     <header>
       <div class="brand">
         <a id="logo" href="home.html"
-          ><img src="images/logo.png" alt="RENTCAR" height="30%" width="30%"/></a>
+          ><img src="images/logo.png" alt="RENTCAR" height="20%" width="20%"
+        /></a>
       </div>
       <nav>
-        <a style="font-weight: bolder; font-size: 150%"
+        <a
+          style="font-weight: bolder; font-size: 150%"
           href="booking.html"
-          style="font-family: cursive">Bookings</a>
+          style="font-family: cursive"
+          >Bookings</a
+        >
       </nav>
     </header>
 
@@ -35,7 +40,8 @@
             <input
               type="text"
               id="searchInput"
-              placeholder=" Enter Rental ID"/>
+              placeholder=" Enter Rental ID"
+            />
             <button id="searchbtn" onclick="searchRecord()">
               <i class="fa fa-search"></i>
             </button>
@@ -60,24 +66,15 @@
         </div>
 
         <hr style="color: aliceblue" />
-        <form id="rentalForm" onsubmit="addRecord()">
-          <!-- <input type="hidden" id="editIndex"> -->
 
+        <form id="rentalForm" onsubmit="addRecord()">
           <div class="formgroup">
             <label for="rentalId">Rental ID*</label><br />
-            <input
-              type="text"
-              id="rentalId"
-              placeholder="Rental ID"
-              required/>
+            <input type="text" id="rentalId" placeholder="Rental ID" required />
           </div>
           <div class="formgroup">
             <label for="carModel">Car Model*</label><br />
-            <input
-              type="text"
-              id="carModel"
-              placeholder="Car Model"
-              required/>
+            <input type="text" id="carModel" placeholder="Car Model" required />
           </div>
           <div class="formgroup">
             <label for="mfdYear">Mfd Year(between 1900 and 2024)</label><br />
@@ -86,7 +83,8 @@
               id="mfdYear"
               placeholder="Mfd Year"
               min="1900"
-              max="2024" />
+              max="2024"
+            />
           </div>
           <div class="formgroup">
             <label for="fuelType">Fuel Type</label><br />
@@ -101,7 +99,8 @@
               type="date"
               id="rentStartDate"
               placeholder="Rent Start Date"
-              required />
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="rentEndDate">Rent End Date*</label><br />
@@ -109,7 +108,8 @@
               type="date"
               id="rentEndDate"
               placeholder="Rent End Date"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="customerName">Customer Name*</label><br />
@@ -117,7 +117,8 @@
               type="text"
               id="customerName"
               placeholder="Customer Name"
-              required />
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="startPlace">Start Place*</label><br />
@@ -125,7 +126,8 @@
               type="text"
               id="startPlace"
               placeholder="Start Place"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="destinationPlace">Destination Place*</label><br />
@@ -133,17 +135,20 @@
               type="text"
               id="destinationPlace"
               placeholder="Destination Place"
-              required />
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="isSinglePassenger">
-              Is Single Passenger (including driver)*:</label>
+              Is Single Passenger (including driver)*:</label
+            >
             <input type="checkbox" id="isSinglePassenger" />
           </div>
-          <br/>
+          <br />
           <div id="last_button">
             <button type="submit">Save</button>
-            <button type="button" class="btn cancelbtn" onclick="closePopup()"> Cancel
+            <button type="button" class="btn cancelbtn" onclick="closePopup()">
+              Cancel
             </button>
           </div>
         </form>
@@ -172,7 +177,8 @@
               id="rentalId1"
               placeholder="Rental ID"
               disabled
-              style="color: white" />
+              style="color: white"
+            />
           </div>
           <div class="formgroup">
             <label for="carModel1">Car Model*</label><br />
@@ -180,7 +186,8 @@
               type="text"
               id="carModel1"
               placeholder="Car Model"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="mfdYear1">Mfd Year (between 1900 and 2024)</label><br />
@@ -189,7 +196,8 @@
               id="mfdYear1"
               placeholder="Mfd Year"
               min="1900"
-              max="2024"/>
+              max="2024"
+            />
           </div>
           <div class="formgroup">
             <label for="fuelType">Fuel Type</label><br />
@@ -205,7 +213,8 @@
               type="date"
               id="rentStartDate1"
               placeholder="Rent Start Date"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="rentEndDate1">Rent End Date*</label><br />
@@ -213,7 +222,8 @@
               type="date"
               id="rentEndDate1"
               placeholder="Rent End Date"
-              required />
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="customerName1">Customer Name*</label><br />
@@ -221,7 +231,8 @@
               type="text"
               id="customerName1"
               placeholder="Customer Name"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="startPlace1">Start Place*</label><br />
@@ -229,7 +240,8 @@
               type="text"
               id="startPlace1"
               placeholder="Start Place"
-              required />
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="destinationPlace1">Destination Place*</label><br />
@@ -237,14 +249,16 @@
               type="text"
               id="destinationPlace1"
               placeholder="Destination Place"
-              required/>
+              required
+            />
           </div>
           <div class="formgroup">
             <label for="isSinglePassenger1">
-              Is Single Passenger (including driver)*:</label>
+              Is Single Passenger (including driver)*:</label
+            >
             <input type="checkbox" id="isSinglePassenger1" />
           </div>
-          <br/>
+          <br />
           <div id="last_button">
             <button type="submit">Update</button>
             <button type="button" class="btn cancelbtn" onclick="closePopup()">

@@ -13,17 +13,14 @@ body {
 header {
   background-color: #020543;
   color: white;
-  padding: 2% ;
+  padding: 1% ;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 100%;
+
 }
 
-header .brand {
-  font-size: 100%;
-  cursor: pointer;
-}
+
 
 header nav a {
   color: white;
@@ -33,7 +30,7 @@ header nav a {
 }
 
 .main {
-  position: relative;
+  /* position: relative; */
   height: 100%;
   width: 100%;
 }
@@ -48,20 +45,23 @@ header nav a {
 .divlogo1 img {
   width: 100%;
   height: auto;
-  border-radius: 3%;
-  margin-top: -10%;
+  margin-top: -8%;
 }
 
 .texts {
   font-size: xx-large;
-  margin-left: 5%;
-
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 3%;
+  margin-top:5% ;
   text-shadow: 2px 2px 5px rgb(14, 6, 98);
+}
+.texts h4{
+  padding: 2%;
 }
 
 .grid-container {
   display: grid;
-  width: 100%;
+  width: auto;
   height: auto;
   overflow-y: hidden;
   grid-template-columns: repeat(3, 1fr); /* Set 3 columns */
@@ -86,49 +86,6 @@ header nav a {
   object-fit: cover;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .divlogo1 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .divlogo1 img {
-    width: 100%;
-  }
-
-  /* .texts {
-        margin-left: 0;
-        margin-top: 10%;
-        text-align: center;
-    } */
-
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1% 2%;
-  }
-
-  /* header nav a {
-        margin-left: 0;
-        margin-top: 5px;
-    } */
-
-  /* .texts {
-        font-size: large;
-        text-align: left;
-    } */
-
-  .grid-container {
-    grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
-  }
-}
 
 footer {
   text-align: center;
@@ -140,3 +97,64 @@ footer {
   bottom: 0;
   position: fixed;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1% 2%;
+  } 
+  
+   header nav a {
+    margin-left: 0;
+    margin-top: 5px;
+  } 
+  
+   .texts {
+    font-size: large;
+    text-align: left;
+  } 
+  
+   .grid-container { 
+    grid-template-columns: repeat(1, 1fr);  1 column for very small screens 
+  }
+} */
+
+
+
+
+/* Responsive Adjustments */
+/* @media (max-width: 768px) {
+ .divlogo1 img {
+    width: 100%;
+  }
+  
+  .divlogo1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .texts {
+        margin-left: 0;
+        margin-top: 10%;
+        text-align: center;
+    }  
+
+   .grid-container {
+    grid-template-columns: repeat(2, 1fr); 2 columns for smaller screens 
+  }  
+} */
