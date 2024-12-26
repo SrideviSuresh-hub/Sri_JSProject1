@@ -22,38 +22,38 @@ let array = [
   {
     rentalId: 1,
     carModel: "maruthi",
-    mfdYear: 2,
+    mfdYear: 2010,
     fuelType: "petrol",
-    rentStartDate: "21-12-2024",
-    rentEndDate: "23-12-2024",
+    rentStartDate: "28-12-2024",
+    rentEndDate: "31-12-2024",
     customerName: "sri",
     startPlace: "Cbpur",
     destinationPlace: "blore",
-    isSinglePassenger: true,
+    isSinglePassenger: "Yes",
   },
   {
     rentalId: 2,
-    carModel: "maruthi",
-    mfdYear: 2,
+    carModel: "honda",
+    mfdYear: 2020,
     fuelType: "petrol",
-    rentStartDate: "21-12-2024",
-    rentEndDate: "23-12-2024",
+    rentStartDate: "27-12-2024",
+    rentEndDate: "30-12-2024",
     customerName: "sri",
     startPlace: "Cbpur",
     destinationPlace: "blore",
-    isSinglePassenger: true,
+    isSinglePassenger: "Yes",
   },
   {
-    rentalId: 1003,
+    rentalId:3,
     carModel: "maruthi",
-    mfdYear: 2,
+    mfdYear: 2015,
     fuelType: "petrol",
-    rentStartDate: "21-12-2024",
-    rentEndDate: "23-12-2024",
+    rentStartDate: "28-12-2024",
+    rentEndDate: "29-12-2024",
     customerName: "sri",
     startPlace: "Cbpur",
     destinationPlace: "blore",
-    isSinglePassenger: true,
+    isSinglePassenger: "Yes",
   },
 ];
 storeData(array);
@@ -72,10 +72,13 @@ function loadData() {
                     <th>Booked Customer Name</th>
                     <th>Start Place</th>
                     <th>Destination Place</th>
+                    <th>isSinglePassenger</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>`;
+
+          
   array.forEach((index) => {
     tabletext +=
       `<tr><td>` +
@@ -90,17 +93,23 @@ function loadData() {
       index.rentStartDate +
       `</td><td>` +
       index.rentEndDate +
-      `</td><td >` +
+      `</td><td id="tooltip" title="` +
+      index.customerName +`">` +
       index.customerName +
-      `</td><td >` +
+      `</td><td id="tooltip" title="`+
+      index.startPlace+`">` +
       index.startPlace +
-      `</td><td >` +
+      `</td><td id="tooltip" title="`+
+      index.destinationPlace+`">` +
       index.destinationPlace +
+      `</td><td>`+
+      index.isSinglePassenger + 
       `</td><td>
                 <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
                 <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button></td></tr>`;
   });
   tabletext += `</tbody>`;
+
 
   //  storing data into local storage
   localStorage.setItem("Sri_table", JSON.stringify(array));
@@ -135,8 +144,8 @@ function addRecord() {
   data["customerName"] = document.getElementById("customerName").value;
   data["startPlace"] = document.getElementById("startPlace").value;
   data["destinationPlace"] = document.getElementById("destinationPlace").value;
-  data["isSinglePassenger"] =
-    document.getElementById("isSinglePassenger").value;
+  data["isSinglePassenger"] = document.getElementById("isSinglePassenger").checked ? "Yes" : "No";
+ 
 
   // Validate rent start date is greater than today
   if (new Date(data["rentStartDate"]) <= new Date()) {
@@ -178,9 +187,10 @@ function reset() {
   document.getElementById("isSinglePassenger").value = "";
 }
 
-function editRecord(rowdetails) {
-  var selectRow = rowdetails.parentElement.parentElement;
+function editRecord(row) {
+  var selectRow = row.parentElement.parentElement;
   var rowId = selectRow.cells[0].innerHTML;
+  
   array.forEach((index) => {
     if (index.rentalId == rowId) {
       document.getElementById("rentalId1").value = index.rentalId;
@@ -191,10 +201,9 @@ function editRecord(rowdetails) {
       document.getElementById("rentEndDate1").value = index.rentEndDate;
       document.getElementById("customerName1").value = index.customerName;
       document.getElementById("startPlace1").value = index.startPlace;
-      document.getElementById("destinationPlace1").value =
-        index.destinationPlace;
-      document.getElementById("isSinglePassenger1").value =
-        index.isSinglePassenger;
+      document.getElementById("destinationPlace1").value = index.destinationPlace;
+      document.getElementById("isSinglePassenger1").checked = index.isSinglePassenger === "Yes";
+      
     }
   });
   editopenPopup();
@@ -231,12 +240,10 @@ function update() {
       index.rentEndDate = document.getElementById("rentEndDate1").value;
       index.customerName = document.getElementById("customerName1").value;
       index.startPlace = document.getElementById("startPlace1").value;
-      index.destinationPlace =
-        document.getElementById("destinationPlace1").value;
-      index.isSinglePassenger =
-        document.getElementById("isSinglePassenger1").value;
-      // console.log("id");
-      loadData();
+      index.destinationPlace = document.getElementById("destinationPlace1").value;
+      index.isSinglePassenger = document.getElementById("isSinglePassenger1").checked ? "Yes" : "No";       
+      
+       loadData();
     }
   });
 
@@ -262,6 +269,7 @@ function searchRecord() {
                 <th>Booked Customer Name</th>
                 <th>Start Place</th>
                 <th>Destination Place</th>
+                <th>isSinglePassenger</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -277,9 +285,10 @@ function searchRecord() {
                     <td>${index.fuelType}</td>
                     <td>${index.rentStartDate}</td>
                     <td>${index.rentEndDate}</td>
-                    <td>${index.customerName}</td>
-                    <td>${index.startPlace}</td>
-                    <td>${index.destinationPlace}</td>
+                    <td id="tooltip" title="` + index.customerName +`"> ${index.customerName}</td>
+                    <td id="tooltip" title="` + index.startPlace +`"> ${index.startPlace}</td>
+                    <td id="tooltip" title="` + index.destinationPlace +`"> ${index.destinationPlace}</td>
+                    <td>${index.isSinglePassenger}</td>
                     <td>
                         <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
                         <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button>
@@ -289,7 +298,7 @@ function searchRecord() {
     });
 
     if (!found) {
-      tabletext += `<tr><td colspan="10">Rental ID not found.</td></tr>`;
+      tabletext += `<tr><td colspan="11">Rental ID not found.</td></tr>`;
     }
 
     tabletext += `</tbody>`;
@@ -307,11 +316,11 @@ document
   });
 
 // delete opertion
-function deleteRecord(rowdetails) {
+function deleteRecord(row) {
   var del = confirm("Do you want to delete this record?");
 
   if (del == true) {
-    selectRow = rowdetails.parentElement.parentElement;
+    selectRow = row.parentElement.parentElement;
     rowId = selectRow.cells[0].innerHTML;
 
     array.forEach((index) => {
@@ -325,18 +334,4 @@ function deleteRecord(rowdetails) {
   } else {
     return 0;
   }
-}
-
-// `</td><td id="tooltip" title="` +
-//       index.customerName +`>` +
-//       index.customerName +
-//       `</td><td id="tooltip1" title="`+
-//       index.startPlace+`>` +
-//       index.startPlace +
-//       `</td><td id="tooltip2" title="`+
-//       index.destinationPlace+`>` +
-//       index.destinationPlace +`</td><td>`
-
-{
-  /* <td id="tooltip" title="` + index.customerName +`"> */
 }
