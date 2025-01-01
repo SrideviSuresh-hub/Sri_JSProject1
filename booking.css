@@ -166,13 +166,16 @@ header nav a {
   display: none;
   z-index: 1111;
 }
+
 #popupcontent h3 {
   color: white;
 }
+
 #rentalForm1 {
   height: 80%;
   width: 100%;
 }
+
 #rentalForm {
   width: 97%;
   height: 100%;

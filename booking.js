@@ -10,6 +10,7 @@ function editopenPopup() {
   document.getElementById("mask").style.display = "block";
 }
 
+
 //close add  and edit record popup
 function closePopup() {
   document.getElementById("popupcontent").style.display = "none";
@@ -168,6 +169,7 @@ function addRecord() {
     alert("Rental ID already exists. Please use a unique ID.");
     return;
   }
+  
   loadData();
   closePopup();
   reset();
@@ -249,6 +251,7 @@ function update() {
 
   closePopup();
 }
+
 
 // Search operation
 function searchRecord() {
