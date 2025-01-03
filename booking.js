@@ -9,13 +9,20 @@ function editopenPopup() {
   document.getElementById("editpopupcontent").style.display = "block";
   document.getElementById("mask").style.display = "block";
 }
+//open view record popup
+function viewPopup() {
+  document.getElementById("viewpopupcontent").style.display = "block";
+  document.getElementById("mask").style.display = "block";
+}
 
 
 //close add  and edit record popup
 function closePopup() {
   document.getElementById("popupcontent").style.display = "none";
   document.getElementById("editpopupcontent").style.display = "none";
+  document.getElementById("viewpopupcontent").style.display = "none";
   document.getElementById("mask").style.display = "none";
+  reset();
 }
 
 //creation of array
@@ -27,18 +34,6 @@ let array = [
     fuelType: "petrol",
     rentStartDate: "28-12-2024",
     rentEndDate: "31-12-2024",
-    customerName: "sri",
-    startPlace: "Cbpur",
-    destinationPlace: "blore",
-    isSinglePassenger: "Yes",
-  },
-  {
-    rentalId: 2,
-    carModel: "honda",
-    mfdYear: 2020,
-    fuelType: "petrol",
-    rentStartDate: "27-12-2024",
-    rentEndDate: "30-12-2024",
     customerName: "sri",
     startPlace: "Cbpur",
     destinationPlace: "blore",
@@ -73,7 +68,7 @@ function loadData() {
                     <th>Booked Customer Name</th>
                     <th>Start Place</th>
                     <th>Destination Place</th>
-                    <th>isSinglePassenger</th>
+                    <th>IsSinglePassenger</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -107,7 +102,9 @@ function loadData() {
       index.isSinglePassenger + 
       `</td><td>
                 <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
+                <button class="btn viewbtn" onclick="viewRecord(this)"><i class="fa fa-eye"></i></button>
                 <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button></td></tr>`;
+                
   });
   tabletext += `</tbody>`;
 
@@ -133,7 +130,7 @@ function storeData(x) {
 }
 
 // add operation
-function addRecord() {
+function addRecord(event) {
   event.preventDefault();
   var data = {};
   data["rentalId"] = document.getElementById("rentalId").value;
@@ -172,7 +169,8 @@ function addRecord() {
   
   loadData();
   closePopup();
-  reset();
+  // reset();
+
 }
 
 //function to reset
@@ -188,6 +186,8 @@ function reset() {
   document.getElementById("destinationPlace").value = "";
   document.getElementById("isSinglePassenger").value = "";
 }
+
+//function to edit
 
 function editRecord(row) {
   var selectRow = row.parentElement.parentElement;
@@ -210,23 +210,53 @@ function editRecord(row) {
   });
   editopenPopup();
 }
+//function to view
 
-//update function
-function update() {
+function viewRecord(row) {  
+  var selectRow = row.parentElement.parentElement;
+  var rowId = selectRow.cells[0].innerHTML;
+  
+  array.forEach((index) => {
+    if (index.rentalId == rowId) {
+      document.getElementById("rentalId1").value = index.rentalId;
+      document.getElementById("carModel1").value = index.carModel;
+      document.getElementById("mfdYear1").value = index.mfdYear;
+      document.getElementById("fuelType1").value = index.fuelType;
+      document.getElementById("rentStartDate1").value = index.rentStartDate;
+      document.getElementById("rentEndDate1").value = index.rentEndDate;
+      document.getElementById("customerName1").value = index.customerName;
+      document.getElementById("startPlace1").value = index.startPlace;
+      document.getElementById("destinationPlace1").value = index.destinationPlace;
+      document.getElementById("isSinglePassenger1").checked = index.isSinglePassenger === "Yes";
+      
+    }
+  });
+  viewPopup();
+}
+
+function update(event) {
+ 
   event.preventDefault();
   let rentStartDate = document.getElementById("rentStartDate1").value;
   let rentEndDate = document.getElementById("rentEndDate1").value;
 
+  // Initialize a flag to track validation status
+  let isValid = true;
+
   // Validate rent start date is greater than today
   if (new Date(rentStartDate) <= new Date()) {
     alert("Rent start date should be greater than today's date.");
-    return;
+    isValid = false;
   }
 
   // Validate rent end date is after rent start date
   if (new Date(rentStartDate) >= new Date(rentEndDate)) {
     alert("Rent end date should be after rent start date.");
-    return;
+    isValid = false;
+  }
+
+  if (!isValid) {
+    return 0; // Exit the function if validation fails
   }
 
   let rentId = document.getElementById("rentalId1").value;
@@ -245,12 +275,14 @@ function update() {
       index.destinationPlace = document.getElementById("destinationPlace1").value;
       index.isSinglePassenger = document.getElementById("isSinglePassenger1").checked ? "Yes" : "No";       
       
-       loadData();
+      loadData();
     }
   });
 
+  
   closePopup();
 }
+
 
 
 // Search operation
@@ -272,7 +304,7 @@ function searchRecord() {
                 <th>Booked Customer Name</th>
                 <th>Start Place</th>
                 <th>Destination Place</th>
-                <th>isSinglePassenger</th>
+                <th>IsSinglePassenger</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -294,6 +326,7 @@ function searchRecord() {
                     <td>${index.isSinglePassenger}</td>
                     <td>
                         <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
+                        <button class="btn viewbtn" onclick="viewRecord(this)"><i class="fa fa-eye"></i></button>
                         <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>`;
@@ -328,8 +361,8 @@ function deleteRecord(row) {
 
     array.forEach((index) => {
       if (index.rentalId == rowId) {
-        console.log(index.rentalId);
-        console.log(array.indexOf(index));
+        // console.log(index.rentalId);
+        // console.log(array.indexOf(index));
         array.splice(array.indexOf(index), 1);
       }
       loadData();
@@ -337,4 +370,4 @@ function deleteRecord(row) {
   } else {
     return 0;
   }
-}
+}            
