@@ -13,20 +13,23 @@ body {
 header {
   background-color: #020543;
   color: white;
-  padding: 1% ;
+  padding: 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
-
-
 
 header nav a {
   color: white;
   text-decoration: none;
   margin-left: 0%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  font-size: 150%;
+  border: 2px solid white;
+  padding: 4% 1% 4% 1%;
+  display: flex;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .main {
@@ -50,12 +53,12 @@ header nav a {
 
 .texts {
   font-size: xx-large;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-left: 3%;
-  margin-top:5% ;
+  margin-top: 5%;
   text-shadow: 2px 2px 5px rgb(14, 6, 98);
 }
-.texts h4{
+.texts h4 {
   padding: 2%;
 }
 
@@ -66,10 +69,9 @@ header nav a {
   overflow-y: hidden;
   grid-template-columns: repeat(3, 1fr); /* Set 3 columns */
   gap: 2%;
-  margin-top: 5%;
   padding-bottom: 5%;
   border-radius: 1%;
-  margin-bottom: 5%;
+  margin: 5% 1% 5% 1%;
 }
 
 .grid-container .card {
@@ -86,7 +88,6 @@ header nav a {
   object-fit: cover;
 }
 
-
 footer {
   text-align: center;
   padding: 1%;
@@ -98,21 +99,30 @@ footer {
   position: fixed;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .divlogo1 {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+  }
 
+  .divlogo1 img {
+    width: 100%;
+    margin-top: 0;
+  }
 
+  .texts {
+    font-size: large;
+    margin-left: 0;
+    text-align: center;
+  }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /*2 columns for smaller screens */
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-/* 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -130,31 +140,6 @@ footer {
   } 
   
    .grid-container { 
-    grid-template-columns: repeat(1, 1fr);  1 column for very small screens 
+    grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens
   }
-} */
-
-
-
-
-/* Responsive Adjustments */
-/* @media (max-width: 768px) {
- .divlogo1 img {
-    width: 100%;
-  }
-  
-  .divlogo1 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .texts {
-        margin-left: 0;
-        margin-top: 10%;
-        text-align: center;
-    }  
-
-   .grid-container {
-    grid-template-columns: repeat(2, 1fr); 2 columns for smaller screens 
-  }  
-} */
+}  */

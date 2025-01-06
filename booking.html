@@ -14,16 +14,15 @@
   <body>
     <header>
       <div class="brand">
-        <a id="logo" href="home.html" >
-          <img src="images/logo.png" alt="RENTCAR" height="20%" width="20%"/></a>
+        <a id="logo" href="home.html">
+          <img src="images/logo.png" alt="RENTCAR" height="20%" width="20%"
+        /></a>
       </div>
       <nav>
         <a
           style="font-weight: bolder; font-size: 150%"
           href="booking.html"
-          style="font-family: cursive"
-          >Bookings</a
-        >
+          style="font-family: cursive">Bookings</a >
       </nav>
     </header>
 
@@ -46,7 +45,8 @@
             </button>
           </div>
         </div>
-
+        
+         <!-- table -->
         <div class="tableresponsive">
           <table id="table_data"></table>
         </div>
@@ -66,7 +66,7 @@
 
         <hr style="color: aliceblue" />
 
-        <form id="rentalForm" onsubmit="addRecord()">
+        <form id="rentalForm" onsubmit="addRecord(event)">
           <div class="formgroup">
             <label for="rentalId">Rental ID*</label><br />
             <input type="text" id="rentalId" placeholder="Rental ID" required />
@@ -166,7 +166,7 @@
         </div>
 
         <hr style="color: aliceblue" />
-        <form id="rentalForm1" onsubmit="update()">
+        <form id="rentalForm1" onsubmit="update(event)">
           <!-- <input type="hidden" id="editIndex"> -->
 
           <div class="formgroup">
@@ -260,6 +260,115 @@
           <br />
           <div id="last_button">
             <button type="submit">Update</button>
+            <button type="button" class="btn cancelbtn" onclick="closePopup()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- view -->
+      <div id="viewpopupcontent">
+        <div id="button_close">
+          <div><h3>View Rental Record</h3></div>
+          <div>
+            <button class="close" onclick="closePopup()">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+        </div>
+
+        <hr style="color: aliceblue" />
+
+        <form id="rentalForm">
+          <div class="formgroup">
+            <label for="rentalId2">Rental ID*</label><br />
+            <input
+              type="text"
+              id="rentalId2"
+              placeholder="Rental ID"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="carModel2">Car Model*</label><br />
+            <input
+              type="text"
+              id="carModel2"
+              placeholder="Car Model"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="mfdYear2">Mfd Year(between 1900 and 2024)</label><br />
+            <input
+              type="number"
+              id="mfdYear2"
+              placeholder="Mfd Year"
+              min="1900"
+              max="2024"
+            />
+          </div>
+          <div class="formgroup">
+            <label for="fuelType2">Fuel Type</label><br />
+            <select id="fuelType2">
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+            </select>
+          </div>
+          <div class="formgroup">
+            <label for="rentStartDate2">Rent Start Date*</label><br />
+            <input
+              type="date"
+              id="rentStartDate2"
+              placeholder="Rent Start Date"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="rentEndDate2">Rent End Date*</label><br />
+            <input
+              type="date"
+              id="rentEndDate2"
+              placeholder="Rent End Date"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="customerName2">Customer Name*</label><br />
+            <input
+              type="text"
+              id="customerName2"
+              placeholder="Customer Name"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="startPlace2">Start Place*</label><br />
+            <input
+              type="text"
+              id="startPlace2"
+              placeholder="Start Place"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="destinationPlace2">Destination Place*</label><br />
+            <input
+              type="text"
+              id="destinationPlace2"
+              placeholder="Destination Place"
+              required
+            />
+          </div>
+          <div class="formgroup">
+            <label for="IsSinglePassenger2">
+              Is Single Passenger (including driver)*:</label
+            >
+            <input type="checkbox" id="isSinglePassenger2" />
+          </div>
+          <br />
+          <div id="last_button" style="margin-left: 20%">
             <button type="button" class="btn cancelbtn" onclick="closePopup()">
               Cancel
             </button>
