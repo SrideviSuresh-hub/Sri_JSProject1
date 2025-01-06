@@ -24,12 +24,20 @@ header nav a {
   text-decoration: none;
   margin-left: 0%;
   font-weight: bolder;
+<<<<<<< HEAD
   font-size: 150%;
+=======
+  font-size: 150%; 
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   border: 2px solid white;
   padding: 4% 1% 4% 1%;
   display: flex;
   text-align: center;
+<<<<<<< HEAD
   font-family: Georgia, "Times New Roman", Times, serif;
+=======
+  font-family:Georgia, 'Times New Roman', Times, serif;
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 }
 
 .main {
@@ -71,7 +79,11 @@ header nav a {
   gap: 2%;
   padding-bottom: 5%;
   border-radius: 1%;
+<<<<<<< HEAD
   margin: 5% 1% 5% 1%;
+=======
+  margin:5% 1% 5% 1%
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 }
 
 .grid-container .card {
@@ -79,6 +91,7 @@ header nav a {
   border-radius: 3%;
   background-color: rgb(10, 5, 101);
   box-shadow: 5px 5px 5px rgb(17, 4, 72);
+  
 }
 
 .card img {
@@ -112,6 +125,7 @@ footer {
     margin-top: 0;
   }
 
+<<<<<<< HEAD
   .texts {
     font-size: large;
     margin-left: 0;
@@ -122,6 +136,44 @@ footer {
   }
 }
 
+=======
+/* Responsive Adjustments */
+ @media (max-width: 768px) {
+ 
+    .divlogo1 {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5%;
+    }
+  
+    .divlogo1 img {
+      width: 100%;
+      margin-top: 0;
+    }
+  
+    .texts {
+      font-size: large;
+      margin-left: 0;
+      text-align: center;
+    }
+   .grid-container {
+    grid-template-columns: repeat(2, 1fr); /*2 columns for smaller screens */
+  }  
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 /* @media (max-width: 480px) {
   header {
     flex-direction: column;
@@ -143,3 +195,9 @@ footer {
     grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens
   }
 }  */
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d

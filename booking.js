@@ -14,6 +14,10 @@ function viewPopup() {
   document.getElementById("viewpopupcontent").style.display = "block";
   document.getElementById("mask").style.display = "block";
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 
 //close add  and edit record popup
 function closePopup() {
@@ -39,7 +43,11 @@ let array = [
     isSinglePassenger: "Yes",
   },
   {
+<<<<<<< HEAD
     rentalId: 3,
+=======
+    rentalId:3,
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
     carModel: "maruthi",
     mfdYear: 2015,
     fuelType: "petrol",
@@ -102,9 +110,14 @@ function loadData() {
       `</td><td>` +
       index.isSinglePassenger +
       `</td><td>
+<<<<<<< HEAD
       <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
+=======
+                <button class="btn editbtn" onclick="editRecord(this)"><i class="fa fa-edit"></i></button>
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
                 <button class="btn viewbtn" onclick="viewRecord(this)"><i class="fa fa-eye"></i></button>
                 <button class="btn deletebtn" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button></td></tr>`;
+                
   });
   tabletext += `</tbody>`;
 
@@ -167,6 +180,11 @@ function addRecord(event) {
 
   loadData();
   closePopup();
+<<<<<<< HEAD
+=======
+  // reset();
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 }
 
 //function to reset
@@ -209,10 +227,17 @@ function editRecord(row) {
 }
 //function to view
 
+<<<<<<< HEAD
 function viewRecord(row) {
   var selectRow = row.parentElement.parentElement;
   var rowId = selectRow.cells[0].innerHTML;
 
+=======
+function viewRecord(row) {  
+  var selectRow = row.parentElement.parentElement;
+  var rowId = selectRow.cells[0].innerHTML;
+  
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   array.forEach((index) => {
     if (index.rentalId == rowId) {
       document.getElementById("rentalId1").value = index.rentalId;
@@ -223,21 +248,35 @@ function viewRecord(row) {
       document.getElementById("rentEndDate1").value = index.rentEndDate;
       document.getElementById("customerName1").value = index.customerName;
       document.getElementById("startPlace1").value = index.startPlace;
+<<<<<<< HEAD
       document.getElementById("destinationPlace1").value =
         index.destinationPlace;
       document.getElementById("isSinglePassenger1").checked =
         index.isSinglePassenger === "Yes";
+=======
+      document.getElementById("destinationPlace1").value = index.destinationPlace;
+      document.getElementById("isSinglePassenger1").checked = index.isSinglePassenger === "Yes";
+      
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
     }
   });
   viewPopup();
 }
 
 function update(event) {
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   event.preventDefault();
   let rentStartDate = document.getElementById("rentStartDate1").value;
   let rentEndDate = document.getElementById("rentEndDate1").value;
 
+<<<<<<< HEAD
   //  track validation status
+=======
+  // Initialize a flag to track validation status
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   let isValid = true;
 
   // Validate rent start date is greater than today
@@ -253,7 +292,11 @@ function update(event) {
   }
 
   if (!isValid) {
+<<<<<<< HEAD
     return 0;
+=======
+    return 0; // Exit the function if validation fails
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   }
 
   let rentId = document.getElementById("rentalId1").value;
@@ -269,6 +312,7 @@ function update(event) {
       index.rentEndDate = document.getElementById("rentEndDate1").value;
       index.customerName = document.getElementById("customerName1").value;
       index.startPlace = document.getElementById("startPlace1").value;
+<<<<<<< HEAD
       index.destinationPlace =
         document.getElementById("destinationPlace1").value;
       index.isSinglePassenger = document.getElementById("isSinglePassenger1")
@@ -276,13 +320,24 @@ function update(event) {
         ? "Yes"
         : "No";
 
+=======
+      index.destinationPlace = document.getElementById("destinationPlace1").value;
+      index.isSinglePassenger = document.getElementById("isSinglePassenger1").checked ? "Yes" : "No";       
+      
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
       loadData();
     }
   });
 
+  
   closePopup();
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 // Search operation
 function searchRecord() {
   let id = document.getElementById("searchInput").value;
@@ -375,4 +430,4 @@ function deleteRecord(row) {
   } else {
     return 0;
   }
-}
+}            

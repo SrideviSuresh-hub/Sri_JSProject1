@@ -124,6 +124,10 @@ header nav a {
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
+<<<<<<< HEAD
+=======
+  /* text-overflow: ellipsis; */
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   max-width: 50px;
 }
 
@@ -132,7 +136,12 @@ th {
   border: 1.3px solid #041154;
   padding: 8px;
   text-align: center;
+<<<<<<< HEAD
   white-space: nowrap;
+=======
+  white-space:nowrap;
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 }
 #table_data th {
   background-color: #041154;
@@ -156,8 +165,12 @@ th {
 
 /* Popup */
 #popupcontent,
+<<<<<<< HEAD
 #editpopupcontent,
 #viewpopupcontent {
+=======
+#editpopupcontent,#viewpopupcontent {
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   padding: 1.5% 1% 1.5% 1%;
   width: 30%;
   height: auto;
@@ -182,7 +195,11 @@ th {
 #rentalForm {
   width: 97%;
   height: 100%;
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   padding-right: 1.5%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -194,7 +211,11 @@ th {
 }
 #fuelType,
 #fuelType1,
+<<<<<<< HEAD
 #fuelType2 {
+=======
+#fuelType2{
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
   width: 100%;
   height: 6%;
   padding: 1%;
@@ -298,12 +319,23 @@ footer {
   left: 0;
   position: fixed;
 }
+<<<<<<< HEAD
 #tooltip {
   white-space: break-all;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 10px;
 }
+=======
+#tooltip{
+    white-space: break-all;
+    overflow:hidden ;
+    text-overflow: ellipsis;
+    width:10px;  
+}
+
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 
 @media screen and (max-width: 920px) {
   #button_close button {
@@ -313,9 +345,14 @@ footer {
     margin-left: 70%;
     margin-top: 10%;
     border-radius: 20%;
+   
   }
 
   #button_close > div > button > i {
     font-size: 75%;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b62e60f0b3897cd2a28384ec0970028ade7af36d
 }
