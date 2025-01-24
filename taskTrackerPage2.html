@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Tracker</title>
+    <!-- Existing head content -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+   <link rel="stylesheet" href="taskTrackerPage2.css">
+  </head>
+  <body>
+    <div id="header">
+      <h1>Task Tracker</h1>
+      <div>
+        <div style="display: inline-block; position: relative;">
+          <input type="text" placeholder="Search tasks" id="searchBar" style="padding-right: 30px;" />
+          <i class="fas fa-search" id="searchIcon" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
+        </div>
+        <button id="addTaskBtn">Add Task</button>
+      </div>
+      
+
+    </div>
+    <div id="taskWrapper">
+        <div id="container"></div>
+      </div>    <div id="popup" style="display: none">
+      <div id="settext">
+        <input type="text" id="taskTitle" placeholder="Title" />
+        <textarea id="taskDescription" placeholder="Description"></textarea>
+      </div>
+      <div id="setBtn">
+        <button id="saveTaskBtn">Save</button>
+        <button id="cancelTaskBtn">Cancel</button>
+      </div>
+    </div>
+
+    <script src="taskTrackerPage2.js"></script>
+  </body>
+</html>

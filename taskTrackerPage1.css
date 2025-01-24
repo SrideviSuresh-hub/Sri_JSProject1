@@ -1,0 +1,51 @@
+#header {
+    background-color: rgb(38, 40, 40);
+    text-align: center;
+    color: rgb(241, 244, 247);
+    padding: 20px;
+}
+#header div {
+    margin: 10px;
+}
+input {
+    padding: 10px;
+    width: 70vw;
+}
+button {
+    padding: 10px;
+    width: 15vw;
+    cursor: pointer;
+}
+button:hover {
+    border: 1px solid black;
+}
+ol {
+    background-color: rgb(235, 234, 232);
+}
+ol li:first-child {
+    border-top: 1px solid black;
+}
+ol li {
+    border: 1px solid black;
+    border-top: none;
+    padding: 10px;
+    margin-left: -40px;
+}
+.deleteBtn {
+    position: fixed;
+    width: inherit;
+    right: 20px;
+    cursor: pointer;
+}
+.button-class {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
