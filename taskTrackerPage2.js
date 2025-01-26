@@ -4,6 +4,12 @@ const saveTaskBtn = document.getElementById("saveTaskBtn");
 const cancelTaskBtn = document.getElementById("cancelTaskBtn");
 const taskTitle = document.getElementById("taskTitle");
 const taskDescription = document.getElementById("taskDescription");
+const searchBar = document.getElementById("searchBar");
+const searchIcon = document.getElementById("searchIcon");
+const searchResultsContainer = document.createElement("div");
+searchResultsContainer.id = "searchResultsContainer";
+document.body.appendChild(searchResultsContainer);
+
 
 let currentTask = null;
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -114,51 +120,121 @@ container.addEventListener("click", (event) => {
   }
 });
 
-const searchBar = document.getElementById("searchBar");
-const searchIcon = document.getElementById("searchIcon");
 
+
+
+// Modified taskColumnMap to track original order of tasks in each column
+const taskColumnMap = new Map();
+
+// The search icon click event (when the user clicks the search icon to filter tasks)
 searchIcon.addEventListener("click", () => {
   const query = searchBar.value.toLowerCase();
-  const tasks = document.querySelectorAll('.task');
-
-  const searchResultsContainer = document.getElementById("searchResultsContainer");
-  if (searchResultsContainer) {
-    searchResultsContainer.remove();
-  }
+  const tasks = document.querySelectorAll(".task");
 
   if (query === "") {
+    // When search is cleared, restore all tasks to their original columns
     container.style.display = "flex";
-    tasks.forEach((task) => task.style.display = "block");
+
+    while (searchResultsContainer.firstChild) {
+      const task = searchResultsContainer.firstChild;
+      const { column, order } = taskColumnMap.get(task.id);
+
+      // Restore task to its original column in the exact order
+      order.forEach((taskId) => {
+        const taskToRestore = document.getElementById(taskId);
+        column.appendChild(taskToRestore);  // Append task in the correct order
+      });
+
+      // Clear the column map after restoring
+      taskColumnMap.delete(task.id);
+    }
     return;
   }
 
+  // Hide the main container and show the search results
   container.style.display = "none";
+  searchResultsContainer.innerHTML = ""; // Clear previous search results
 
-  const newSearchResultsContainer = document.createElement("div");
-  newSearchResultsContainer.id = "searchResultsContainer";
-  taskWrapper.appendChild(newSearchResultsContainer);
-
+  // Move matching tasks to the search results container
   tasks.forEach((task) => {
     const title = task.querySelector("strong").textContent.toLowerCase();
     if (title.includes(query)) {
-      newSearchResultsContainer.appendChild(task);
+      const originalColumn = task.closest(".column");
+
+      // Track the task's original column and order (list of task ids in original order)
+      if (!taskColumnMap.has(task.id)) {
+        const originalOrder = Array.from(originalColumn.children).map((child) => child.id);
+        taskColumnMap.set(task.id, { column: originalColumn, order: originalOrder });
+      }
+
+      // Move matching task to the search results container
+      searchResultsContainer.appendChild(task);
     }
   });
 });
 
-searchBar.addEventListener("input", () => {
-  if (searchBar.value === "") {
-    container.style.display = "flex";
-    const searchResultsContainer = document.getElementById("searchResultsContainer");
-    if (searchResultsContainer) {
-      searchResultsContainer.remove();
+
+searchResultsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("task")) {
+    const taskElement = event.target;
+    currentTask = taskElement;
+    const title = taskElement.querySelector("strong").textContent;
+    const description = taskElement.querySelector("p").textContent;
+    const originalColumn = taskColumnMap.get(taskElement.id).column;
+    const columnHeading = originalColumn.querySelector("h3").textContent; // Get the column heading (status)
+
+    // Set task details in the popup
+    taskTitle.value = title;
+    taskDescription.value = description;
+
+    const statusField = document.createElement("input");
+    statusField.type = "text";
+    statusField.value = columnHeading; // Set the column status
+    statusField.disabled = true; // Disable editing the column status field
+    statusField.id = "taskStatus";
+    const settext = document.getElementById("settext");
+    const existingStatusField = document.getElementById("taskStatus");
+    if (existingStatusField) {
+      settext.removeChild(existingStatusField);
     }
-    const tasks = document.querySelectorAll('.task');
-    tasks.forEach((task) => {
-      task.style.display = "block";
-    });
+    settext.appendChild(statusField);
+
+    // Disable editing of task fields if the task is in the last column (e.g., "Completed")
+    if (originalColumn === document.querySelector(".column:last-child")) {
+      taskTitle.disabled = true;
+      taskDescription.disabled = true;
+    } else {
+      taskTitle.disabled = false;
+      taskDescription.disabled = false;
+    }
+
+    // Show the popup
+    popup.style.display = "block";
   }
 });
+
+
+// Event listener for search bar input
+searchBar.addEventListener("input", () => {
+  if (searchBar.value === "") {
+    // Reset display of the main container and restore all tasks
+    container.style.display = "flex";
+
+    // Ensure all tasks in the searchResultsContainer are moved back to their original columns
+    while (searchResultsContainer.firstChild) {
+      const task = searchResultsContainer.firstChild;
+      const { column, index } = taskColumnMap.get(task.id);
+
+      // Restore task to its original column and position (index within column)
+      // This ensures tasks are inserted back in the correct order
+      column.insertBefore(task, column.children[index] || null);
+
+      // Remove from map after restoring
+      taskColumnMap.delete(task.id);
+    }
+  }
+});
+
 
 function handleDragStart(event) {
   event.currentTarget.classList.add("dragging");
@@ -219,6 +295,10 @@ columns.forEach(column => {
   column.addEventListener("dragover", handleDragOver);
   column.addEventListener("drop", handleDrop);
 });
+
+
+
+
 
 window.onload = createColumns;
 
