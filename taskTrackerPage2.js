@@ -1,5 +1,7 @@
 const addTaskBtn = document.getElementById("addTaskBtn");
 const popup = document.getElementById("popup");
+const mask = document.getElementById("mask");
+
 const saveTaskBtn = document.getElementById("saveTaskBtn");
 const cancelTaskBtn = document.getElementById("cancelTaskBtn");
 const taskTitle = document.getElementById("taskTitle");
@@ -14,6 +16,15 @@ document.body.appendChild(searchResultsContainer);
 let currentTask = null;
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+
+function openPopup() {
+  popup.style.display = "block";
+  mask.style.display = "block";  // Show mask when popup opens
+}
+function closePopup() {
+  popup.style.display = "none";  // Hide popup
+  mask.style.display = "none";   // Hide mask
+}
 function createColumns() {
   const container = document.getElementById("container");
   tasks.forEach((task) => {
@@ -34,12 +45,26 @@ function createColumns() {
 }
 
 addTaskBtn.addEventListener("click", () => {
-  popup.style.display = "block";
-  currentTask = null;
+  openPopup()
+  currentTask = null; // No task is selected when adding a new task
+  
+  // Remove the status field if it exists
+  const settext = document.getElementById("settext");
+  const existingStatusField = document.getElementById("taskStatus");
+  if (existingStatusField) {
+    settext.removeChild(existingStatusField);
+  }
+
+  // Enable the title and description fields for a new task
+  taskTitle.disabled = false;
+  taskDescription.disabled = false;
+
+  taskTitle.value = ""; // Clear previous values
+  taskDescription.value = "";
 });
 
 cancelTaskBtn.addEventListener("click", () => {
-  popup.style.display = "none";
+  closePopup();
 });
 
 saveTaskBtn.addEventListener("click", () => {
@@ -77,7 +102,8 @@ saveTaskBtn.addEventListener("click", () => {
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
-  popup.style.display = "none";
+  // popup.style.display = "none";
+  closePopup();
   taskTitle.value = "";
   taskDescription.value = "";
   currentTask = null;
@@ -116,7 +142,8 @@ container.addEventListener("click", (event) => {
       taskDescription.disabled = false;
     }
 
-    popup.style.display = "block";
+    // popup.style.display = "block";
+    openPopup();
   }
 });
 
@@ -209,7 +236,8 @@ searchResultsContainer.addEventListener("click", (event) => {
     }
 
     // Show the popup
-    popup.style.display = "block";
+    // popup.style.display = "block";
+     openPopup()
   }
 });
 
